@@ -1,0 +1,9 @@
+network:
+  version: 2
+  ethernets:
+    ens18:
+      addresses: [${join(", ", addresses)}]
+      gateway4: 10.0.0.1
+      dhcp4: no
+      nameservers:
+        addresses: [10.0.0.1]

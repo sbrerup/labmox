@@ -1,0 +1,8 @@
+write-kubeconfig-mode: "0644"
+tls-san:
+  - "k3s-01"
+  - "k3s-01.turtle-vector.ts.net"
+  - "100.118.68.69"
+disable:
+  - servicelb
+  - traefik
