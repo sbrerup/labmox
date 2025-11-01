@@ -1,0 +1,40 @@
+#cloud-config
+hostname: ${hostname}
+
+write_files:
+  - path: /etc/rancher/k3s/config.yaml
+    permissions: "0644"
+    content: |
+      write-kubeconfig-mode: "0644"
+      token: ${join_token}
+      cluster-init: ${cluster_init}
+      tls-san:
+        - "${hostname}"
+        - "${hostname}.turtle-vector.ts.net"
+
+users:
+  - default
+  - name: ${username}
+    sudo: "ALL=(ALL) NOPASSWD:ALL"
+    groups: users, admin
+    ssh_authorized_keys:
+      - ${ssh_key}
+    shell: /bin/bash
+
+chpasswd:
+  expire: true
+  users:
+    - { name: "${username}", password: "${userpass}", type: text }
+ssh_pwauth: false
+
+package_update: true
+package_upgrade: true
+
+packages:
+  - open-iscsi
+  - nfs-common
+  - cryptsetup
+  - dmsetup
+
+runcmd:
+  - curl -sfL https://get.k3s.io | sh -s - server

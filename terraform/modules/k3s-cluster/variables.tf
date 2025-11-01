@@ -1,4 +1,8 @@
-variable "proxmox_endpoint" {
+variable "init_node_ip" {
+  type = string
+}
+
+variable "init_node_name" {
   type = string
 }
 
@@ -6,19 +10,7 @@ variable "node_name" {
   type = string
 }
 
-variable "local_tf_storage" {
-  type = string
-}
-
-variable "token" {
-  type = string
-}
-
 variable "username" {
-  type = string
-}
-
-variable "temp_userpass" {
   type = string
 }
 
@@ -26,15 +18,15 @@ variable "ssh_key" {
   type = string
 }
 
+variable "userpass" {
+  type = string
+}
+
+variable "local_tf_storage" {
+  type = string
+}
+
 variable "join_token" {
-  type = string
-}
-
-variable "init_node_ip" {
-  type = string
-}
-
-variable "init_node_name" {
   type = string
 }
 

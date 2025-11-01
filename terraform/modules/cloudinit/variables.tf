@@ -30,3 +30,20 @@ variable "addresses" {
   type        = list(string)
   description = "Ip addresses for the VM."
 }
+
+variable "server_node_ip" {
+  type = string
+}
+
+variable "join_token" {
+  type = string
+}
+
+variable "role" {
+  type = string
+}
+
+variable "cluster_init" {
+  type    = bool
+  default = false
+}

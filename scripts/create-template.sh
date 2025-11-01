@@ -23,9 +23,13 @@ qm create "$vm_id" \
     --scsihw "$scsihw" \
     --net0 "$net0" \
     --ide2 "$storage:cloudinit" \
-    --agent enabled=1
+    --agent enabled=1 \
+    --serial0 socket
 
 qm disk import $vm_id $iso_local_path $storage
 qm set $vm_id --scsi0 $storage:vm-$vm_id-disk-0,discard=on,iothread=on
 qm set $vm_id --boot order=scsi0
+
 qm template $vm_id 
+
+virt-customize -a /dev/zvol/rpool/data/base-8000-disk-0 --install qemu-guest-agent

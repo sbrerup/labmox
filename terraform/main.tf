@@ -15,38 +15,15 @@ provider "proxmox" {
   }
 }
 
-module "k3s_server_01_cloudinit" {
-  source       = "./modules/cloudinit"
-  hostname     = "k3s-server-01"
-  addresses    = ["10.0.0.10"]
-  node_name    = var.node_name
-  username     = "sbrerup"
-  userpass     = var.userpass
-  ssh_key      = var.ssh_key
-  datastore_id = var.local_tf_storage
+module "k3s_cluster" {
+  source           = "./modules/k3s-cluster"
+  init_node_ip     = var.init_node_ip
+  init_node_name   = var.init_node_name
+  join_token       = var.join_token
+  local_tf_storage = var.local_tf_storage
+  node_name        = var.node_name
+  ssh_key          = var.ssh_key
+  username         = var.username
+  userpass         = var.temp_userpass
+  nodes            = var.nodes
 }
-
-# resource "proxmox_virtual_environment_vm" "k3s_server_01" {
-#   vm_id     = 100
-#   node_name = var.node_name
-#   name      = "k3s-server-01"
-#   started   = true
-
-#   clone {
-#     full  = true
-#     vm_id = 8000
-#   }
-
-#   disk {
-#     datastore_id = "local-zfs"
-#     interface    = "scsi0"
-#     size         = 20
-#   }
-
-
-#   initialization {
-#     datastore_id         = "local-zfs"
-#     user_data_file_id    = module.k3s_server_01_cloudinit.user_data_file_id
-#     network_data_file_id = module.k3s_server_01_cloudinit.network_data_file_id
-#   }
-# }
