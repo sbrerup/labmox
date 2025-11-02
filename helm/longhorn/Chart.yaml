@@ -1,0 +1,12 @@
+apiVersion: v2
+name: longhorn
+description: A Helm chart for Longhorn
+type: application
+version: 0.1.0
+appVersion: "unstable"
+
+dependencies:
+  - name: longhorn
+    condition: longhorn.enabled
+    repository: https://charts.longhorn.io
+    version: 1.10.0

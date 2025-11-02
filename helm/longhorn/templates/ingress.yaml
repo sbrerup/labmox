@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: longhorn-ui-ingress
+spec:
+  ingressClassName: tailscale
+  tls:
+    - hosts:
+        - longhorn
+  rules:
+    - host: longhorn
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: longhorn-frontend
+                port:
+                  number: 80
