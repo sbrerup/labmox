@@ -1,0 +1,12 @@
+apiVersion: v2
+name: cnpg
+description: A Helm chart for Kubernetes
+type: application
+version: 0.1.0
+appVersion: "unstable"
+
+dependencies:
+  - name: cloudnative-pg
+    condition: cloudnative-pg.enabled
+    repository: https://cloudnative-pg.github.io/charts
+    version: 0.26.1
