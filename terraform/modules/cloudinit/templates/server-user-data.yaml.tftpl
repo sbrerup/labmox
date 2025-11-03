@@ -11,6 +11,8 @@ write_files:
       tls-san:
         - "${hostname}"
         - "${hostname}.turtle-vector.ts.net"
+      node-taint:
+        - "node-role.kubernetes.io/control-plane=true:NoSchedule"
 
 users:
   - default
