@@ -8,27 +8,5 @@ longhorn:
     defaultDataPath: "/var/lib/longhorn"
     systemManagedComponentsNodeSelector: "longhorn.io/node=true"
 
-  longhornManager:
-    nodeSelector:
-      longhorn.io/node: "true"
-
-  longhornDriver:
-    nodeSelector:
-      longhorn.io/node: "true"
-
-  longhornConversionWebhook:
-    nodeSelector:
-      longhorn.io/node: "true"
-
-  longhornAdmissionWebhook:
-    nodeSelector:
-      longhorn.io/node: "true"
-
-  longhornRecoveryBackend:
-    nodeSelector:
-      longhorn.io/node: "true"
-
   longhornUI:
     replicas: 1
-    nodeSelector:
-      longhorn.io/node: "true"
