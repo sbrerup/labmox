@@ -1,5 +1,8 @@
 longhorn:
   enabled: true
+  global:
+    nodeSelector:
+      longhorn.io/node: "true"
 
   defaultSettings:
     defaultDataPath: "/var/lib/longhorn"
@@ -13,11 +16,6 @@ longhorn:
     nodeSelector:
       longhorn.io/node: "true"
 
-  longhornUI:
-    replicas: 1
-    nodeSelector:
-      longhorn.io/node: "true"
-
   longhornConversionWebhook:
     nodeSelector:
       longhorn.io/node: "true"
@@ -27,5 +25,10 @@ longhorn:
       longhorn.io/node: "true"
 
   longhornRecoveryBackend:
+    nodeSelector:
+      longhorn.io/node: "true"
+
+  longhornUI:
+    replicas: 1
     nodeSelector:
       longhorn.io/node: "true"
