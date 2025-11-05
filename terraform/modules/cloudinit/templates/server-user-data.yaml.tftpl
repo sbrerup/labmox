@@ -19,8 +19,7 @@ users:
   - name: ${username}
     sudo: "ALL=(ALL) NOPASSWD:ALL"
     groups: users, admin
-    ssh_authorized_keys:
-      - ${ssh_key}
+    ssh_authorized_keys: $ssh_keys
     shell: /bin/bash
 
 chpasswd:

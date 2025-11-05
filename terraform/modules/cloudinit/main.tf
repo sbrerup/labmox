@@ -2,7 +2,7 @@ locals {
   common_template_vars = {
     hostname     = var.hostname
     username     = var.username
-    ssh_key      = var.ssh_key
+    ssh_keys     = var.ssh_keys
     userpass     = var.userpass
     join_token   = var.join_token
     cluster_init = var.cluster_init
