@@ -22,8 +22,8 @@ variable "temp_userpass" {
   type = string
 }
 
-variable "ssh_key" {
-  type = string
+variable "ssh_keys" {
+  type = list(string)
 }
 
 variable "join_token" {

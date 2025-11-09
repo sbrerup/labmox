@@ -22,7 +22,7 @@ module "k3s_cluster" {
   join_token       = var.join_token
   local_tf_storage = var.local_tf_storage
   node_name        = var.node_name
-  ssh_key          = var.ssh_key
+  ssh_keys         = var.ssh_keys
   username         = var.username
   userpass         = var.temp_userpass
   nodes            = var.nodes

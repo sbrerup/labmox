@@ -5,7 +5,7 @@ module "k3s_init_node_cloudinit" {
   node_name      = var.node_name
   username       = var.username
   userpass       = var.userpass
-  ssh_key        = var.ssh_key
+  ssh_keys       = var.ssh_keys
   datastore_id   = var.local_tf_storage
   role           = "server"
   join_token     = var.join_token
@@ -57,7 +57,7 @@ module "k3s_cloud_init_configs" {
   node_name      = var.node_name
   username       = var.username
   userpass       = var.userpass
-  ssh_key        = var.ssh_key
+  ssh_keys       = var.ssh_keys
   datastore_id   = var.local_tf_storage
   role           = each.value.role
   join_token     = var.join_token

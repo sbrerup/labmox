@@ -14,8 +14,8 @@ variable "username" {
   type = string
 }
 
-variable "ssh_key" {
-  type = string
+variable "ssh_keys" {
+  type = list(string)
 }
 
 variable "userpass" {
